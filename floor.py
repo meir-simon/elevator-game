@@ -1,32 +1,70 @@
 import time
 from settings import *
 import pygame
+from timer import timer
+
+
 class floor:
-    def __init__(self,num_of_floor) -> None:
-        self.time_to_wait = None #object of timer with the time nedded to wait
+    def __init__(self, num_of_floor) -> None:
+        self.time_to_wait = None  # object of timer with the time nedded to wait
         self.num_of_floor = num_of_floor
-        self.y_position = window_size[1] - (hight_floor * self.num_of_floor+1) 
+        self.y_position = window_size[1] - \
+            (height_floor * (self.num_of_floor+1))
+        self.bottun_width = None # update according to the size font and the number of flors
+        self.bottun = None # an object type rect
+
     def color_bottun(self):
-        if self.time_to_wait:
-            return (0,255,0)
-        return(255,0,0)
+        if not self.time_to_wait or not self.time_to_wait.time_left():
+            return (255, 0, 0)
+        return (0, 255, 0)
 
+    def update_time(self, time):
+        self.time_to_wait = timer(time)
 
-    def draw_line(self,window):
-         pygame.draw.line(window,(0,0,0),(0,self.num_of_floor*(hight_floor)+(hight_black_line/2)),(building_width,self.num_of_floor*(hight_floor)+(hight_black_line/2)),hight_black_line)    
+    def draw_line(self, window):
+        pygame.draw.line(window, (0, 0, 0), (0, self.y_position+height_black_line / 2),
+                         (building_width, self.y_position + height_black_line / 2), height_black_line)
 
-    # def draw_timer(self,window):
-    #     if self.time_to_wait: # the clock is runing
-    #         font = pygame.font.SysFont("Arial", 10) 
-    #         txtsurf = font.render(str(self.time_to_wait.time_left()),True,(255,0,0),(0,255,0))#the current time from the timer in red on green
-    #         window.blit(txtsurf,(0,hight_floor*(self.num_of_floor + 0.5)))# draw in the left of the floor 
+    def draw_timer(self, window):
+
+        if self.time_to_wait:  # the timer instantiate
+            if self.time_to_wait.time_left():  # the clock is runing
+                time_now = str(self.time_to_wait.time_left())
+                # one digit after the point
+                time_now = time_now[:time_now.find(".") + 2]
+                font = pygame.font.SysFont("Arial", 10)
+                # the current time from the timer in red on green
+                txtsurf = font.render(time_now, True, (255, 0, 0), (0, 255, 0))
+                # draw in the left of the floor
+                window.blit(txtsurf, (0, self.y_position+height_black_line))
 
     def draw_bottun(self,window):
         color_bottun = self.color_bottun()
-        rect = pygame.Rect((building_width/2)-20,(self.num_of_floor*hight_floor)+hight_black_line ,building_width/3 ,hight_floor)
-        pygame.draw.rect(window,color_bottun,rect)
+        rect_bottun = pygame.Rect((building_width / 2) - self.bottun_width / 2, self.y_position + (height_floor+height_black_line)/2 - self.bottun_width/2
+                           ,self.bottun_width , self.bottun_width )
+        font = pygame.font.SysFont("Arial", FONT_SIZE)
+        # the current time from the timer in red on green
+        txtsurf = font.render(str(self.num_of_floor), True, (0, 0, 0))
+        rect_font = txtsurf.get_rect()
+        rect_font.center = rect_bottun.center
+        # draw in the left of the floor
+        pygame.draw.rect(window, color_bottun, rect_bottun)
+        window.blit(txtsurf, rect_font)
+        self.bottun = rect_bottun
 
-    def draw_floor(self,window):
-        #self.draw_timer(window)
+
+    def __calculate_button_width(self):
+        font = pygame.font.SysFont("Arial", FONT_SIZE)
+        text_surface = font.render(str(num_of_floors), True, (0, 0, 0))
+        text_surface_rect = text_surface.get_rect()
+        self.bottun_width = text_surface_rect.width
+
+    def draw_floor(self, window):
+        self.__calculate_button_width()
+        self.draw_timer(window)
         self.draw_bottun(window)
-        self.draw_line(window)    
+        self.draw_line(window)
+
+
+
+ 

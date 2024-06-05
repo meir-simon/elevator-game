@@ -3,10 +3,9 @@ from settings import *
 from building import building
 pygame.init()
 building1 = building()
-window_size = (building_width+10+(num_of_elevators * elevator_width), num_of_floors*hight_floor)
-if window_size[0] < 1800 or window_size[1] < 1000:  
+window_size = (building_width+(num_of_elevators * elevator_width), num_of_floors*height_floor)
+if window_size[0] < 1800 or window_size[1] < 1000: 
    window = pygame.display.set_mode(window_size)
-  
    pygame.display.set_caption("elevators game")
 
    running = True
@@ -23,7 +22,7 @@ if window_size[0] < 1800 or window_size[1] < 1000:
       pygame.display.update()
    pygame.quit()
 else:
-   print("to much floors/elevators to the screen")   
+   print("to much floors/elevators to the screen, buy tv screen")   
 
 
 
