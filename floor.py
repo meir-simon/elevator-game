@@ -8,22 +8,23 @@ class floor:
     def __init__(self, num_of_floor) -> None:
         self.time_to_wait = None  # object of timer with the time nedded to wait
         self.num_of_floor = num_of_floor
-        self.y_position = window_size[1] - \
-            (height_floor * (self.num_of_floor+1))
+        self.y_position = WINDOW_SIZE[1] - \
+            (HEIGHT_FLOOR * (self.num_of_floor+1))
         self.bottun_width = None # update according to the size font and the number of flors
         self.bottun = None # an object type rect
 
     def color_bottun(self):
-        if not self.time_to_wait or not self.time_to_wait.time_left():
-            return (255, 0, 0)
+        if not self.time_to_wait or not self.time_to_wait.time_left():# there no eevetor on the way
+            return (170, 170, 170)
         return (0, 255, 0)
 
     def update_time(self, time):
         self.time_to_wait = timer(time)
 
     def draw_line(self, window):
-        pygame.draw.line(window, (0, 0, 0), (0, self.y_position+height_black_line / 2),
-                         (building_width, self.y_position + height_black_line / 2), height_black_line)
+        if self.y_position > 0: #all the floors exept the top floor
+            pygame.draw.line(window, (0, 0, 0), (0, self.y_position+HEIGHT_BLACK_LINE / 2),
+                            (BUILDING_WIDTH, self.y_position + HEIGHT_BLACK_LINE / 2), HEIGHT_BLACK_LINE)
 
     def draw_timer(self, window):
 
@@ -36,11 +37,11 @@ class floor:
                 # the current time from the timer in red on green
                 txtsurf = font.render(time_now, True, (255, 0, 0), (0, 255, 0))
                 # draw in the left of the floor
-                window.blit(txtsurf, (0, self.y_position+height_black_line))
+                window.blit(txtsurf, (0, self.y_position+HEIGHT_BLACK_LINE))
 
     def draw_bottun(self,window):
         color_bottun = self.color_bottun()
-        rect_bottun = pygame.Rect((building_width / 2) - self.bottun_width / 2, self.y_position + (height_floor+height_black_line)/2 - self.bottun_width/2
+        rect_bottun = pygame.Rect((BUILDING_WIDTH / 2) - self.bottun_width / 2, self.y_position + (HEIGHT_FLOOR+HEIGHT_BLACK_LINE)/2 - self.bottun_width/2
                            ,self.bottun_width , self.bottun_width )
         font = pygame.font.SysFont("Arial", FONT_SIZE)
         # the current time from the timer in red on green
@@ -55,7 +56,7 @@ class floor:
 
     def __calculate_button_width(self):
         font = pygame.font.SysFont("Arial", FONT_SIZE)
-        text_surface = font.render(str(num_of_floors), True, (0, 0, 0))
+        text_surface = font.render(str(NUM_OF_FLOORS), True, (0, 0, 0))
         text_surface_rect = text_surface.get_rect()
         self.bottun_width = text_surface_rect.width
 

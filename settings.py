@@ -1,18 +1,28 @@
-num_of_floors = 10
-num_of_elevators = 3
-height_space_floor = 43
-height_black_line = 7
-height_floor = height_space_floor+height_black_line
-speed = 2*height_floor
-deleay_time = 2
-building_width = 100
-elevator_width = 70
-window_size = (building_width+10+(num_of_elevators * elevator_width), num_of_floors*height_floor)
-sound_path = r"ding.mp3"
-elevator_pic = r"C:\Users\meir\Desktop\elv.png"
-img_building_path = r"building.jpg"
-size_bottun = building_width / 5
-FONT_SIZE = 15
+NUM_OF_FLOORS = 10
+NUM_OF_ELEVATORS = 3
+HEIGHT_FLOOR = 50
+BUILDING_WIDTH = 50
+NUM_OF_FLOORS,NUM_OF_ELEVATORS = int(input("nom of floors")),int(input("nom of elevators"))
+
+dim_y = HEIGHT_FLOOR*NUM_OF_FLOORS
+if dim_y > 620:
+    HEIGHT_FLOOR = int(620/NUM_OF_FLOORS)
+HEIGHT_BLACK_LINE = int(HEIGHT_FLOOR/7)
+ELEVATOR_WIDTH = HEIGHT_FLOOR    
+
+
+
+
+    
+
+SPEED = 2*HEIGHT_FLOOR
+DELEAY_TIME = 2
+WINDOW_SIZE = (BUILDING_WIDTH+(NUM_OF_ELEVATORS * ELEVATOR_WIDTH), NUM_OF_FLOORS*HEIGHT_FLOOR)
+SOUND_PATH = r"ding.mp3"
+ELEVATOR_PIC = r"elv.png"
+IMG_BUILDING_PATH = R"BUILDING.JPG"
+SIZE_BOTTUN = BUILDING_WIDTH / 5
+FONT_SIZE = int(HEIGHT_FLOOR/3)
 
 
 

@@ -40,7 +40,6 @@ from settings import *
 #    pygame.quit()
 # else:
 #    print("to much floors/elevators to the screen")
-a = 567.87
-a = str(a)   
-b = a.index(".")
-print(b)
+a = 3.8
+b=  a//2
+print(type(b))

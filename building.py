@@ -8,8 +8,8 @@ from floor import floor
 
 class building:
     def __init__(self):
-        self.floors = [floor(x) for x in range(num_of_floors)]
-        self.elevators = [elevator(x) for x in range(num_of_elevators)]
+        self.floors = [floor(x) for x in range(NUM_OF_FLOORS)]
+        self.elevators = [elevator(x) for x in range(NUM_OF_ELEVATORS)]
         for elev in self.elevators:# send all elevators to the first floor
             elev.dest_floor = self.floors[0].y_position 
 
@@ -41,8 +41,8 @@ class building:
             floor.update_time(min_time)
 
     def draw_and_update_all(self, window):
-        img = pygame.image.load(img_building_path)
-        img = pygame.transform.scale(img, (building_width, window_size[1]))
+        img = pygame.image.load(IMG_BUILDING_PATH)
+        img = pygame.transform.scale(img, (BUILDING_WIDTH, WINDOW_SIZE[1]))
         window.blit(img, (0, 0))
         for element in self.floors:
             element.draw_floor(window)
