@@ -40,7 +40,7 @@ class elevator:
         sound = pygame.mixer.Sound(SOUND_PATH)   
         sound.play()
     
-    def updat_position(self):
+    def update_position(self):
         if not self.moving and self.current_calles: #need to move
             if not self.time_to_stop_dealey or not self.time_to_stop_dealey.time_left() :#the elevator is free
                 self.dealey = False

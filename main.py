@@ -1,31 +1,35 @@
 import pygame
 from settings import *
-from building import building
-pygame.init()
-building1 = building()
+from building import Building
 
+pygame.init()
+my_building = Building()
 
 window = pygame.display.set_mode(WINDOW_SIZE)
-pygame.display.set_caption("elevators game")
+pygame.display.set_caption("Elevators Game")
 
 running = True
 while running:
-   # Handle events
-   for event in pygame.event.get():
-      if event.type == pygame.QUIT:
-         running = False
-      if event.type == pygame.MOUSEBUTTONUP:
-         click = pygame.mouse.get_pos()
-         building1.identifies_clicks(click)
-   window.fill((255, 255, 255))
-   building1.draw_and_update_all(window)
-   pygame.display.update()
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.MOUSEBUTTONUP:
+            click_position = pygame.mouse.get_pos()
+            my_building.identify_clicks(click_position)
+    
+    # Fill the window with white background
+    window.fill((255, 255, 255))
+    
+    # Draw and update all building elements
+    my_building.draw_and_update_all(window)
+    
+    # Update the display
+    pygame.display.update()
+
 pygame.quit()
 
-
-
       
-
 
 
                
@@ -47,12 +51,6 @@ pygame.quit()
 
 
 
-        
-
-
-# if move up > current position = dest - (timer.last stop)*2
-#if move down > current position = dest + (timer.last stop)*2
-     
 
 
 
