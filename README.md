@@ -1,7 +1,5 @@
 
-##my gif
 
-![]elevatorgif-ezgif.com-video-to-gif-converter.gif
 # Elevator Simulation Game
 
 This is an elevator simulation game implemented using Pygame. The simulation includes multiple floors and elevators, each responding to user inputs to simulate the operation of elevators in a building.
