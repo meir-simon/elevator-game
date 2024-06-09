@@ -57,15 +57,13 @@ Follow these steps to set up and run the elevator simulation game on your local 
 4. **Install Dependencies**:
    - Install the required dependencies using `pip`:
      ```bash
-     pip install -r requirements.txt
+     pip install pygame
      ```
 
 ### Running the Simulation
 
-1. **Ensure Asset Files Are in Place**:
-   - Make sure you have an `assets/` directory containing all the required images and sound files (e.g., `elevator_sound.wav`, `elevator_pic.png`, `building_img.png`).
 
-2. **Run the Main Script**:
+ **Run the Main Script**:
    - Execute the following command to start the simulation:
      ```bash
      python main.py
@@ -79,9 +77,8 @@ Follow these steps to set up and run the elevator simulation game on your local 
 - `floor.py`: Contains the `Floor` class which represents an individual floor in the building.
 - `timer.py`: Contains the `Timer` class which manages countdown timers for various events.
 - `settings.py`: Configuration file for constants and settings.
-- `requirements.txt`: Lists the dependencies required for the project.
 - `README.md`: Provides an overview and setup instructions for the project.
-- `assets/`: Directory containing images and sound files used in the simulation.
+
 
 ## Contributing
 
