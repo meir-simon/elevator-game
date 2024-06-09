@@ -1,4 +1,3 @@
-
 ![]([https://github.com/Your_Repository_Name/Your_GIF_Name.gif](https://github.com/meir-simon/elevator-game/blob/master/elevator%20gif.mp4))
 # Elevator Simulation Game
 
