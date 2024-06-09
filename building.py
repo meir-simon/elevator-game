@@ -1,8 +1,8 @@
 import time
 import pygame
 from settings import *
-from timer import timer
-from elevator import elevator
+from timer import Timer
+from elevator import Elevator
 from floor import Floor
 
 
@@ -10,7 +10,7 @@ class Building:
     def __init__(self):
         # Insantiate floors and elevators
         self.floors = [Floor(x) for x in range(NUM_OF_FLOORS)]
-        self.elevators = [elevator(x) for x in range(NUM_OF_ELEVATORS)]
+        self.elevators = [Elevator(x) for x in range(NUM_OF_ELEVATORS)]
         # send all elevators to the first floor
         for elev in self.elevators:
             elev.dest_floor = self.floors[0].y_position 
@@ -38,7 +38,7 @@ class Building:
                 flag = False
                 
         if flag:
-            #find the index of the faster elevetor, and the time to arrival
+            #find the number of the faster elevetor, and the time to arrival
             elevator_chosen, min_time = ind_min(
                 [elevator.time_to_floor(floor_y) for elevator in self.elevators])
             #send to the elevator object a call to the y coordinate of the floor  

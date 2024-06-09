@@ -1,7 +1,7 @@
 import time
 from settings import *
 import pygame
-from timer import timer
+from timer import Timer
 
 
 class Floor:
@@ -20,7 +20,7 @@ class Floor:
 
     def update_time(self, time):
         # Update the self.timer to the "time to arrival"  - recived from the building when the floor request an elevator
-        self.time_to_wait = timer(time)
+        self.time_to_wait = Timer(time)
 
     def draw_line(self, window):
         # Draw a line between floors on the building window
