@@ -1,4 +1,5 @@
 import time
+
 class Timer:
     def __init__(self,time_to_run_down_from):
         """
@@ -9,6 +10,7 @@ class Timer:
         """
         self.time = time.time() # The time when the timer was started
         self.time_to_run_down_from = time_to_run_down_from # The duration of the timer
+
     def time_left(self):
         """
         Calculate the remaining time on the timer.

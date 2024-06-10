@@ -2,6 +2,7 @@ import time
 from settings import *
 import pygame
 from timer import Timer
+
 class Elevator:
     def __init__(self,num_of_elevator) -> None:
         self.num_of_elevator = num_of_elevator
@@ -23,8 +24,7 @@ class Elevator:
         return self.y_position
     
     def time_to_floor(self,floor):
-        """
-         
+        """  
     Calculate the time required for the elevator to reach a specified floor.
 
     Parameters:
@@ -57,9 +57,6 @@ class Elevator:
                 self.dest_floor = self.current_calles[0]
                 #1 for movnent up, -1 for movment down
                 self.direction_of_motion = abs(self.dest_floor - self.exit_floor)/(self.dest_floor - self.exit_floor)
-
-                
-
         elif self.moving:
             time_now = time.time()
             d_time = time_now - self.exit_time
@@ -71,14 +68,9 @@ class Elevator:
                 self.time_to_stop_dealey = Timer(DELEAY_TIME)
                 self.make_noise()
 
-
-
-
     def draw_elevator(self,window):
          # Draw the elevator on the window
         pic = pygame.image.load(ELEVATOR_PIC)
         #Fits the elevator image
         pic = pygame.transform.scale(pic,(ELEVATOR_WIDTH,ELEVATOR_WIDTH)) 
         window.blit(pic,(self.x_position,round(self.y_position)))
-
-
