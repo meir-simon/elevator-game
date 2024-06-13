@@ -62,7 +62,8 @@ class Elevator:
             d_time = time_now - self.exit_time
             self.y_position = self.exit_floor + (self.direction_of_motion) * SPEED * d_time
             # checks if the elevator reched its dest, based on the equation x(t) = x0+vt
-            if d_time >= abs((self.dest_floor-self.exit_floor)/SPEED)  :
+            if d_time >= abs((self.dest_floor-self.exit_floor)/SPEED):
+                #remove the dest floor from the list of calls 
                 self.current_calles.pop(0)
                 self.moving = False
                 self.time_to_stop_dealey = Timer(DELEAY_TIME)

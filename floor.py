@@ -14,8 +14,8 @@ class Floor:
     def color_button(self):
         # Determine the color of the floor button based on the timer status
         if not self.time_to_wait or not self.time_to_wait.time_left():# there no eevetor on the way
-            return BUTTON_COLOR# Gray color for inactive button
-        return GREEN# Green color for active button
+            return BUTTON_COLOR
+        return GREEN
 
     def Prepare_for_arrival(self, time):
         # Update the self.timer to the "time to arrival"  - recived from the building when the floor request an elevator
