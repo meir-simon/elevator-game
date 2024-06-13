@@ -1,5 +1,4 @@
 
-#my gif
 ![elevatorgif-ezgif com-video-to-gif-converter](https://github.com/meir-simon/elevator-game/assets/171667759/cdfcc7dc-5cc5-4455-b422-03e2424ad274)
 
 # Elevator Simulation Game
