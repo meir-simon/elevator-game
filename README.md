@@ -41,22 +41,8 @@ Follow these steps to set up and run the elevator simulation game on your local 
      cd elevator-simulation
      ```
 
-3. **Create and Activate Virtual Environment** (Optional but recommended):
-   - Create a virtual environment:
-     ```bash
-     python -m venv env
-     ```
-   - Activate the virtual environment:
-     - On Windows:
-       ```bash
-       .\env\Scripts\activate
-       ```
-     - On macOS and Linux:
-       ```bash
-       source env/bin/activate
-       ```
 
-4. **Install Dependencies**:
+3. **Install Dependencies**:
    - Install the required dependencies using `pip`:
      ```bash
      pip install pygame
