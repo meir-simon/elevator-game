@@ -1,4 +1,6 @@
 
+#my gif
+![elevatorgif-ezgif com-video-to-gif-converter](https://github.com/meir-simon/elevator-game/assets/171667759/cdfcc7dc-5cc5-4455-b422-03e2424ad274)
 
 # Elevator Simulation Game
 
@@ -10,6 +12,7 @@ This is an elevator simulation game implemented using Pygame. The simulation inc
 - Real-time elevator movements
 - User interaction with floor buttons
 - Visual representation of the building and elevators
+
 
 ## Installation and Setup
 
