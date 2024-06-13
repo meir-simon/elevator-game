@@ -61,9 +61,10 @@ Follow these steps to set up and run the elevator simulation game on your local 
      ```
 
 ### Running the Simulation
+1. **Ensure Asset Files Are in Place**:
+   - Make sure you have an `assets/` directory containing all the required images and sound files
 
-
- **Run the Main Script**:
+2. **Run the Main Script**:
    - Execute the following command to start the simulation:
      ```bash
      python main.py
@@ -78,6 +79,7 @@ Follow these steps to set up and run the elevator simulation game on your local 
 - `timer.py`: Contains the `Timer` class which manages countdown timers for various events.
 - `settings.py`: Configuration file for constants and settings.
 - `README.md`: Provides an overview and setup instructions for the project.
+- `assets/`: Directory containing images and sound files used in the simulation.
 
 
 ## Contributing
